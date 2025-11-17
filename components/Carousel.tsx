@@ -19,6 +19,9 @@ export function CarouselComponent() {
   const slides = [
     { image: "/images/Acer1.jpg" },
     { image: "/images/Acer2.jpg" },
+    { image: "/images/Acer1.jpg" },
+    { image: "/images/Acer2.jpg" },
+    { image: "/images/Acer1.jpg" },
   ];
 
   // Autoplay logic
@@ -116,24 +119,24 @@ export function CarouselComponent() {
             {
               title: "Ikuti",
               desc: "Berita Terbaru",
-              link: "/",
+              link: "/news",
             },
             {
               title: "Kunjungi",
-              desc: "Media Informasi Kami",
-              link: "/",
+              desc: "Event",
+              link: "/events",
             },
             {
               title: "Baca",
               desc: "Tentang Kami",
-              link: "/",
+              link: "/about",
             },
           ].map((item, index) => (
             <Card
               key={index}
               className="border-none shadow-none bg-transparent hover:bg-white/50 transition rounded-none"
             >
-              <CardContent className="text-black p-6">
+              <CardContent className="text-white p-6">
                 <Link
                   href={item.link}
                   className="text-lg font-semibold hover:text-blue-600 transition-colors"

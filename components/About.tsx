@@ -1,30 +1,52 @@
 import Link from "next/link";
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="py-20 bg-white text-center px-6 border-t border-gray-100"
+      <section
+      id="innovation-partner"
+      className="py-20 bg-white px-6 border-t border-gray-100 max-w-7xl mx-auto"
     >
-      <h1 className="text-4xl font-bold text-orange-600 mb-4">
-        About Inovation Marketplace
-      </h1>
-      <h2 className="text-xl text-orange-600 mb-6">
-        Connecting Creativity and Commerce to BRIDA JATIM Inovation
-      </h2>
-      <p className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
-        INOShop adalah platform inovasi yang menyediakan peluang bagi pelaku usaha,
-             peneliti, industri, dan pemerintah untuk memperluas kolaborasi dan adopsi teknologi.
-             INOShop mendukung percepatan inovasi dengan menyediakan ekosistem digital dan layanan
-             advisory untuk mendorong hilirisasi riset.
-      </p>
-      <h2>
-        <Link
-          href="/about"
-          className="mt-6 inline-block text-blue-600 underline hover:underline-offset-2 transition-colors font-medium"
-        >
-          Learn More About Us
-        </Link>
-      </h2>
+      <div className="flex flex-col lg:flex-row items-start gap-4">
+        
+        {/* Kiri: Judul */}
+        <div className="lg:w-1/3 text-center">
+          <h1 className="text-5xl font-bold text-orange-500">
+            INOSHOP
+          </h1>
+          <h1 className="text-5xl font-bold text-gray-500">
+            BRIDA JATIM
+        </h1>
+        </div>
+
+        {/* Kanan: Isi */}
+        <div className="lg:w-2/3 text-left text-gray-700 space-y-6">
+          <h2 className="text-lg font-semibold mb-4">
+            Unlocking Innovation, Empowering East Java
+          </h2>
+
+          <div className="space-y-6 leading-relaxed">
+            <div>
+              <h3 className="font-bold text-xl mb-2">Who We Are</h3>
+              <p>
+                INOShop is an innovation platform built to connect entrepreneurs, researchers, industry, and government to accelerate technology adoption and cross-sector collaboration. We serve as a digital ecosystem that supports the downstream process of research and the development of innovation.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-xl mb-2">What We Do</h3>
+              <p>
+               We provide an innovation marketplace that connects industry technology needs with solutions from researchers, startups, and entrepreneurs. INOShop facilitates the innovation matching process to make it faster and more focused.
+              </p>
+            </div>
+          </div>
+
+          <Link
+            href="/about"
+            className="mt-6 inline-block text-cyan-600 font-semibold underline hover:underline-offset-2 transition-colors"
+          >
+            Learn more about Inoshop &gt;
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

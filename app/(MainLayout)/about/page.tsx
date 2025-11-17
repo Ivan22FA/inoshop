@@ -1,5 +1,7 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 type SectionKey = "who" | "what" | "why" | "stand" | "journey";
 
@@ -10,10 +12,7 @@ export default function AboutPage() {
   > = {
     who: {
       title: "Siapa Kami",
-      text: `INOShop adalah platform inovasi yang dibangun untuk menghubungkan pelaku usaha,
-             peneliti, industri, dan pemerintah guna mempercepat adopsi teknologi serta kolaborasi
-             lintas sektor. Kami hadir sebagai ekosistem digital yang mendukung hilirisasi riset
-             dan pengembangan inovasi.`,
+      text: `INOShop is an innovation platform built to connect entrepreneurs, researchers, industry, and government to accelerate technology adoption and cross-sector collaboration. We serve as a digital ecosystem that supports the downstream process of research and the development of innovation.`,
       image: "/images/story-who.jpg",
     },
     what: {
@@ -53,7 +52,7 @@ export default function AboutPage() {
   const [indicatorPos, setIndicatorPos] = useState(0);
   const [indicatorHeight, setIndicatorHeight] = useState(20);
 
-  // ⭐ Update posisi indikator saat active berubah
+  // Update indikator saat berubah
   useEffect(() => {
     const index = keys.indexOf(active);
     const el = listRefs.current[index];
@@ -64,7 +63,7 @@ export default function AboutPage() {
     }
   }, [active]);
 
-  // ⭐ Auto rotate
+  // Auto rotate
   useEffect(() => {
     const interval = setInterval(() => {
       setFade(false);
@@ -89,25 +88,33 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-28 pb-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* HEADER */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-            About <span className="text-orange-500">INOShop Platform</span>
+    <main>
+      {/* COVER */}
+      <section className="relative w-full h-[300px] sm:h-[400px] overflow-hidden shadow-2xl border-b-gray-600">
+        <Image
+          src="/images/Acer1.jpg"
+          alt="About Cover"
+          fill
+          className="object-cover brightness-75"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-3 drop-shadow-md">
+            About INOShop
           </h1>
+          <p className="text-lg sm:text-xl max-w-2xl drop-shadow-sm">
+            Pelajari kisah, tujuan, dan perjalanan kami dalam membangun ekosistem inovasi.
+          </p>
         </div>
+      </section>
 
-        {/* OUR STORY */}
-        <section className="py-12">
+      {/* KISAH KAMI */}
+      <section className="py-20 flex justify-center">
+        <div className="w-11/12 max-w-6xl">
+          <h2 className="text-3xl font-bold mb-8 text-center">Kisah Kami</h2>
+
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* LEFT CONTENT */}
+            {/* LEFT MENU */}
             <div>
-              <h2 className="text-3xl font-bold flex items-center gap-2 mb-8">
-                <span className="w-8 h-1 bg-blue-600 rounded"></span> Kisah Kami
-              </h2>
-
-              {/* Dynamic Title */}
               <h3
                 className={`text-xl font-bold border-l-4 border-blue-600 pl-3 mb-3 transition-opacity duration-300 ${
                   fade ? "opacity-100" : "opacity-0"
@@ -116,7 +123,6 @@ export default function AboutPage() {
                 {sections[active].title}
               </h3>
 
-              {/* Dynamic Text */}
               <p
                 className={`text-gray-700 leading-relaxed mb-6 transition-opacity duration-300 ${
                   fade ? "opacity-100" : "opacity-0"
@@ -127,7 +133,6 @@ export default function AboutPage() {
 
               {/* Navigation List */}
               <ul className="relative space-y-4 font-semibold text-gray-600 pl-4">
-                {/* Moving Indicator */}
                 <div
                   className="absolute left-0 w-1 bg-blue-600 rounded transition-all duration-300"
                   style={{
@@ -166,37 +171,37 @@ export default function AboutPage() {
               />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* OUR PEOPLE */}
-        <section className="py-20">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Orang-Orang Kami</h2>
-            <p className="text-gray-700 text-lg">
-              Tim kami adalah sumber kekuatan terbesar. Dengan pengalaman dan
-              dedikasi tinggi, kami mendorong lahirnya inovasi yang memberikan
-              dampak bagi masyarakat.
-            </p>
-          </div>
-        </section>
+      {/* OUR PEOPLE */}
+      <section className="py-20 bg-gray-50">
+        <div className="text-center max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Orang-Orang Kami</h2>
+          <p className="text-gray-700 text-lg">
+            Tim kami adalah sumber kekuatan terbesar. Dengan pengalaman dan dedikasi tinggi, 
+            kami mendorong lahirnya inovasi yang memberikan dampak bagi masyarakat.
+          </p>
+        </div>
+      </section>
 
-        {/* OUR TEAM */}
-        <section className="py-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Tim Kami</h2>
+      {/* OUR TEAM */}
+      <section className="py-16 px-4">
+        <h2 className="text-3xl font-bold text-center mb-12">Tim Kami</h2>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-            <TeamCard name="Anggota 1" role="Divisi / Jabatan" />
-            <TeamCard name="Anggota 2" role="Divisi / Jabatan" />
-            <TeamCard name="Anggota 3" role="Divisi / Jabatan" />
-            <TeamCard name="Anggota 4" role="Divisi / Jabatan" />
-            <TeamCard name="Anggota 5" role="Divisi / Jabatan" />
-          </div>
-        </section>
-      </div>
-    </div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-5xl mx-auto">
+          <TeamCard name="Anggota 1" role="Divisi / Jabatan" />
+          <TeamCard name="Anggota 2" role="Divisi / Jabatan" />
+          <TeamCard name="Anggota 3" role="Divisi / Jabatan" />
+          <TeamCard name="Anggota 4" role="Divisi / Jabatan" />
+          <TeamCard name="Anggota 5" role="Divisi / Jabatan" />
+        </div>
+      </section>
+    </main>
   );
 }
 
+// COMPONENT TEAM CARD
 function TeamCard({ name, role }: { name: string; role: string }) {
   return (
     <div className="text-center hover:-translate-y-1 transition transform duration-300">
